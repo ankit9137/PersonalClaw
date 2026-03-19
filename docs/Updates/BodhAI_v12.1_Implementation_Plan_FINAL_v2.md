@@ -1,4 +1,4 @@
-# PersonalClaw v12.1 — Final Implementation Plan v2
+# BodhAI v12.1 — Final Implementation Plan v2
 ## Org Safety, Governance & Observability Layer
 
 > **FINAL v2** — Builds on v12.0.0. All 19 pre-build issues (FIX-Q through FIX-AK) identified and resolved inline.
@@ -56,10 +56,10 @@
 ## DIRECTORY STRUCTURE
 
 ```
-PersonalClaw/                             ← project root
+BodhAI/                             ← project root
 ├── .gitignore                            ← MODIFIED: add orgs/ entry
 ├── orgs/                                 ← NEW (moved from memory/orgs/)
-│   └── PersonalClaw-Enterprise-abc123/
+│   └── BodhAI-Enterprise-abc123/
 │       ├── org.json                      ← config + protectedFiles snapshot
 │       ├── shared_memory.json            ← atomic write, merge-on-write
 │       ├── tickets.json                  ← locked tickets tracked here
@@ -2347,7 +2347,7 @@ Run `npx tsc --noEmit` after every phase. Do not proceed on errors.
 108. **Telegram truncation (FIX-AG)** — send notification > 3800 chars → Telegram receives truncated message with `...`
 109. **Daily digest** — trigger `sendDailyDigest()` manually → digest sent if activity → skipped if none
 110. **Stale ticket on restart** — set ticket to `in_progress` → restart → ticket resets to `open`
-111. **Live tool feed** — enable superuser mode → chat with PersonalClaw → tool calls render inline as they execute, with pulsing animation
+111. **Live tool feed** — enable superuser mode → chat with BodhAI → tool calls render inline as they execute, with pulsing animation
 112. **Proposal on restart** — proposals persist across server restarts — loaded from `proposals.json` on startup
 
 ---

@@ -1,10 +1,10 @@
-# PersonalClaw v12.2 🛸
+# BodhAI v12.2 🛸
 
 **The next-generation Windows AI agent. Local. Private. Unstoppable.**
 
-PersonalClaw is a sophisticated, locally-hosted AI agent that combines Google Gemini with full system access, autonomous task execution, and intelligent learning. It's your digital hands—capable of system administration, automation, analytics, and real-time decision-making.
+BodhAI is a sophisticated, locally-hosted AI agent that combines Google Gemini with full system access, autonomous task execution, and intelligent learning. It's your digital hands—capable of system administration, automation, analytics, and real-time decision-making.
 
-![PersonalClaw v12](docs/assets/logo.png)
+![BodhAI v12](docs/assets/logo.png)
 
 **Developed by Ankit Sharma**
 

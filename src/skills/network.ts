@@ -1,5 +1,5 @@
 /**
- * Network Diagnostics Skill — Deep network troubleshooting from PersonalClaw.
+ * Network Diagnostics Skill — Deep network troubleshooting from BodhAI.
  *
  * Ping, traceroute, DNS lookup, port scanning, and connection testing.
  * Essential for MSP/IT work.

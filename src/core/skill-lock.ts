@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Skill Lock Manager — Concurrent resource protection for multi-agent execution.
+ * BodhAI Skill Lock Manager — Concurrent resource protection for multi-agent execution.
  *
  * FIX-1: This module does NOT import agentRegistry to avoid circular dependency.
  * Instead, it emits Event Bus events that agent-registry.ts subscribes to.

@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Event Bus — Central nervous system for decoupled communication.
+ * BodhAI Event Bus — Central nervous system for decoupled communication.
  *
  * All subsystems emit and listen to events through this bus.
  * Enables plugins, audit logging, and real-time dashboard updates without tight coupling.

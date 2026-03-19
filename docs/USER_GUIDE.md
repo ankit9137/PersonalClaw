@@ -1,15 +1,15 @@
-# PersonalClaw v12.2: End-User Guide 🛸
+# BodhAI v12.2: End-User Guide 🛸
 **Developed by Ankit Sharma**
 
-![PersonalClaw Logo](assets/logo.png)
+![BodhAI Logo](assets/logo.png)
 
-Welcome to **PersonalClaw v12.2**, your next-generation AI agent for Windows. This version features **Autonomous AI Organisations** with workspace management, human feedback comments, and an expanded dashboard.
+Welcome to **BodhAI v12.2**, your next-generation AI agent for Windows. This version features **Autonomous AI Organisations** with workspace management, human feedback comments, and an expanded dashboard.
 
 ---
 
 ## ⚡ How to Start
 
-The fastest way to launch PersonalClaw is using the included batch files:
+The fastest way to launch BodhAI is using the included batch files:
 
 1. **Setup**: Run `setup.bat` once to install dependencies and configure your API key.
 2. **Launch**: Run `start.bat`. This will automatically:
@@ -25,7 +25,7 @@ Wait a few seconds for initialization, then head to [http://localhost:5173](http
 
 ## 🏢 AI Organisation System (v12)
 
-PersonalClaw supports creating autonomous AI companies that work on your projects without constant human intervention.
+BodhAI supports creating autonomous AI companies that work on your projects without constant human intervention.
 
 ### 1. Creating an Organisation
 - Click the **Organisations** tab in the sidebar.
@@ -85,7 +85,7 @@ The **Settings** tab lets you control which files agents must submit proposals t
 ### 1. The Command Center (Web Dashboard)
 - **URL**: [http://localhost:5173](http://localhost:5173)
 - **Features**: Real-time system telemetry (CPU/RAM), glassmorphic dark/light mode, and full markdown chat experience.
-- **📸 Dashboard Screenshot**: Click the **Camera icon** next to the chat box to capture any window or your entire screen. PersonalClaw will process it immediately!
+- **📸 Dashboard Screenshot**: Click the **Camera icon** next to the chat box to capture any window or your entire screen. BodhAI will process it immediately!
 - **Tip**: Use `Shift + Enter` for line breaks and `Enter` to send.
 
 ### 2. Telegram Bot (Mobile Control)
@@ -95,7 +95,7 @@ The **Settings** tab lets you control which files agents must submit proposals t
 
 ### 3. Triple-Mode Browser (Built-in)
 - **Playwright Mode (default)**: Built-in persistent browser context. Navigates, scrapes, clicks, and types on any website. Logins saved in `browser_data/`.
-- **Extension Relay Mode (v10.3)**: Install the **PersonalClaw Relay** Chrome extension to bridge the agent to your **real Chrome tabs**. No flags, no remote debugging — just install and go.
+- **Extension Relay Mode (v10.3)**: Install the **BodhAI Relay** Chrome extension to bridge the agent to your **real Chrome tabs**. No flags, no remote debugging — just install and go.
   - **Setup**: `chrome://extensions` → Developer Mode → Load Unpacked → select the `extension/` folder.
   - **Quick check**: `/relay` command shows connection status and open tabs.
   - **Capabilities**: Full DOM interaction (click, type, scrape with links & forms), tab management, screenshots, JavaScript execution, scroll control, interactive element listing.
@@ -109,7 +109,7 @@ The **Settings** tab lets you control which files agents must submit proposals t
 ## 🧠 Core Capabilities
 
 ### 📸 Proactive Vision
-PersonalClaw can see what you see.
+BodhAI can see what you see.
 - **Ask**: *"What's on my screen right now?"* or *"Analyze the Nilear page for ticket 962869."*
 - **Archive**: All captures are saved to `\screenshots` for your records.
 
@@ -122,12 +122,12 @@ Organize, read, and create files effortlessly.
 - **Ask**: *"Create a summary of my project notes"* or *"Move all .pdf files from Desktop to a new folder called Docs."*
 
 ### ⏰ Automated Scheduling (Cron Jobs)
-PersonalClaw can now perform tasks on a schedule.
+BodhAI can now perform tasks on a schedule.
 - **Ask**: *"Schedule a job to check my email every morning at 9am"* or *"List my scheduled jobs."*
 - **Persistence**: Your jobs are saved to `\memory\scheduled_jobs.json`.
 
 ### 🧠 Long-Term Learning (Memory)
-PersonalClaw evolves by learning from your conversations.
+BodhAI evolves by learning from your conversations.
 - **Capabilities**: Remembers your preferred IT troubleshooting tone, your custom MSP jargon (e.g., "The Blue Box"), and specific tool shortcuts.
 - **Ask**: *"Learn that when I say 'Datto Check', I want you to log into Datto and check the alert log."*
 - **Config**: Awareness of `pts_tools.json` for rapid ITGlue/ConnectWise/Nilear access.
@@ -195,6 +195,6 @@ PersonalClaw evolves by learning from your conversations.
 ---
 
 
-*“PersonalClaw: Your machine, your command, anywhere.”*
+*“BodhAI: Your machine, your command, anywhere.”*
 
 **Developed by Ankit Sharma**

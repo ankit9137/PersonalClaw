@@ -175,9 +175,9 @@ Use this knowledge proactively. Adapt your tone, shortcuts, and workflow to matc
     }
   } catch { /* ignore corrupt file */ }
 
-  return `# PersonalClaw v11.0 — Autonomous Windows Agent
+  return `# BodhAI v11.0 — Autonomous Windows Agent
 
-You are **PersonalClaw**, a locally-hosted autonomous AI agent with full system access on this Windows machine. You are not a chatbot — you are an **operator**. You have ${skills.length} tools, persistent memory, a triple-mode browser, and the ability to spawn sub-agents for parallel work.
+You are **BodhAI**, a locally-hosted autonomous AI agent with full system access on this Windows machine. You are not a chatbot — you are an **operator**. You have ${skills.length} tools, persistent memory, a triple-mode browser, and the ability to spawn sub-agents for parallel work.
 
 **Current Time**: ${timestamp}
 
@@ -217,7 +217,7 @@ For simple questions or greetings, skip the framework — just respond naturally
 ### Browser & Web
 | Tool | What it does |
 |---|---|
-| \`browser\` | **Triple-mode browser**: Playwright (default isolated), Native Chrome (real logins via CDP/MCP), Extension Relay (real tabs via PersonalClaw extension). Check \`status\` first to see which modes are available. Scrape first (cheap) → click/type → screenshot only if visual layout matters. |
+| \`browser\` | **Triple-mode browser**: Playwright (default isolated), Native Chrome (real logins via CDP/MCP), Extension Relay (real tabs via BodhAI extension). Check \`status\` first to see which modes are available. Scrape first (cheap) → click/type → screenshot only if visual layout matters. |
 | \`http_request\` | REST API calls (GET/POST/PUT/DELETE) with headers, auth, and response handling. |
 
 ### Intelligence & Diagnostics
@@ -583,7 +583,7 @@ need to do and ask the parent conversation to confirm before acting.`;
 
     this.history = [
       { role: 'user', parts: [{ text: systemPrompt }] },
-      { role: 'model', parts: [{ text: 'Online. PersonalClaw v11 is ready. What do you need?' }] },
+      { role: 'model', parts: [{ text: 'Online. BodhAI v11 is ready. What do you need?' }] },
     ];
     this.turnCount = 0;
     this.startNewSession(this.history);
@@ -660,7 +660,7 @@ need to do and ask the parent conversation to confirm before acting.`;
 
         this.history = [
           { role: 'user', parts: [{ text: systemPrompt }] },
-          { role: 'model', parts: [{ text: 'Online. PersonalClaw v11 is ready. What do you need?' }] },
+          { role: 'model', parts: [{ text: 'Online. BodhAI v11 is ready. What do you need?' }] },
           { role: 'user', parts: [{ text: `[CONTEXT_RECOVERY] Summary of prior conversation:\n${summary}` }] },
           { role: 'model', parts: [{ text: 'Context recovered. Continuing where we left off.' }] },
           ...recentHistory,
@@ -687,7 +687,7 @@ need to do and ask the parent conversation to confirm before acting.`;
 
   private handleHelp(): string {
     return [
-      `## PersonalClaw v11 Commands`,
+      `## BodhAI v11 Commands`,
       ``,
       `### Session`,
       `| Command | Description |`,
@@ -772,7 +772,7 @@ need to do and ask the parent conversation to confirm before acting.`;
       const perfStats = this.perf.getStats();
 
       return [
-        `## PersonalClaw v11 Status`,
+        `## BodhAI v11 Status`,
         ``,
         `| | |`,
         `|---|---|`,

@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Self-Learning Engine
+ * BodhAI Self-Learning Engine
  * 
  * Passively analyzes conversations to learn about the user:
  * - Communication style & tone
@@ -161,7 +161,7 @@ function logLearning(entry: { timestamp: string; type: string; detail: string })
 
 // ─── Analysis Prompt ─────────────────────────────────────────────────
 
-const ANALYSIS_PROMPT = `You are a conversation analyst for an AI assistant called PersonalClaw. Your job is to analyze a conversation and extract learnable insights about the USER (not the AI).
+const ANALYSIS_PROMPT = `You are a conversation analyst for an AI assistant called BodhAI. Your job is to analyze a conversation and extract learnable insights about the USER (not the AI).
 
 Analyze the conversation and return a JSON object with ONLY the fields that have new, actionable insights. Do NOT return fields with no new information. Be highly selective — only extract things that would genuinely improve future interactions.
 
@@ -251,7 +251,7 @@ export class Learner {
   public queueAnalysis(conversationHistory: any[]) {
     // Only analyze if there's enough substance (at least 2 user turns after system prompt)
     const userTurns = conversationHistory.filter(
-      (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# PersonalClaw')
+      (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# BodhAI')
     );
 
     if (userTurns.length < 2) return;

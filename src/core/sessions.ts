@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Session Manager — Browse, search, restore, and manage conversation history.
+ * BodhAI Session Manager — Browse, search, restore, and manage conversation history.
  *
  * Sessions are stored as JSON files in the memory/ directory.
  * This manager provides search, restore, statistics, and cleanup capabilities.
@@ -62,7 +62,7 @@ export class SessionManager {
 
           // Count user turns (skip system prompt)
           const userTurns = content.filter(
-            (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# PersonalClaw')
+            (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# BodhAI')
           );
 
           // Get first real user message
@@ -136,7 +136,7 @@ export class SessionManager {
 
           if (matches.length > 0) {
             const userTurns = content.filter(
-              (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# PersonalClaw')
+              (h: any) => h.role === 'user' && !h.parts?.[0]?.text?.startsWith('# BodhAI')
             );
 
             results.push({

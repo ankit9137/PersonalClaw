@@ -1,4 +1,4 @@
-# PersonalClaw — Logging Patch
+# BodhAI — Logging Patch
 ## Terminal Log Persistence + Activity Feed Persistence
 
 > Standalone patch. No dependency on v12.1 or protection patch.
@@ -10,7 +10,7 @@
 
 | System | Before | After |
 |---|---|---|
-| Terminal output | Printed, lost on restart | Written to `logs/personalclaw-{date}.log`, 7-day rolling |
+| Terminal output | Printed, lost on restart | Written to `logs/bodhai-{date}.log`, 7-day rolling |
 | Dashboard activity feed | 100 items in RAM, lost on restart | Persisted to `logs/activity.jsonl`, 1000-entry limit, reloaded on startup |
 | EventBus log | 500 events in RAM | Unchanged — RAM only, no benefit to persisting |
 
@@ -21,10 +21,10 @@
 ## DIRECTORY STRUCTURE
 
 ```
-PersonalClaw/
+BodhAI/
 ├── logs/                               ← NEW (add to .gitignore)
-│   ├── personalclaw-2026-03-18.log     ← terminal output for that day
-│   ├── personalclaw-2026-03-19.log
+│   ├── bodhai-2026-03-18.log     ← terminal output for that day
+│   ├── bodhai-2026-03-19.log
 │   ├── activity.jsonl                  ← persisted activity feed
 │   └── (files older than 7 days auto-deleted)
 ```
@@ -48,10 +48,10 @@ Files older than 7 days deleted on startup and daily.
 
 ```typescript
 /**
- * PersonalClaw Terminal Logger
+ * BodhAI Terminal Logger
  *
  * Tees all console output (log/warn/error) to a rolling daily log file.
- * Files live in logs/personalclaw-{date}.log, auto-deleted after 7 days.
+ * Files live in logs/bodhai-{date}.log, auto-deleted after 7 days.
  * Zero LLM token cost — pure file I/O.
  */
 
@@ -88,7 +88,7 @@ class TerminalLogger {
     this.intercept();
 
     // Log startup marker
-    const marker = `\n${'='.repeat(60)}\n  PersonalClaw started at ${new Date().toISOString()}\n${'='.repeat(60)}\n`;
+    const marker = `\n${'='.repeat(60)}\n  BodhAI started at ${new Date().toISOString()}\n${'='.repeat(60)}\n`;
     this.stream?.write(marker);
   }
 
@@ -109,7 +109,7 @@ class TerminalLogger {
     this.stream?.end();
     this.currentDate = today;
 
-    const file = path.join(LOGS_DIR, `personalclaw-${today}.log`);
+    const file = path.join(LOGS_DIR, `bodhai-${today}.log`);
     this.stream = fs.createWriteStream(file, { flags: 'a' });
   }
 
@@ -117,7 +117,7 @@ class TerminalLogger {
     try {
       const cutoff = Date.now() - MAX_DAYS * 24 * 60 * 60 * 1000;
       for (const f of fs.readdirSync(LOGS_DIR)) {
-        if (!f.startsWith('personalclaw-') || !f.endsWith('.log')) continue;
+        if (!f.startsWith('bodhai-') || !f.endsWith('.log')) continue;
         const full = path.join(LOGS_DIR, f);
         try {
           if (fs.statSync(full).mtimeMs < cutoff) {
@@ -328,18 +328,18 @@ const shutdown = async (signal: string) => {
 
 ## WHAT THE LOG FILES LOOK LIKE
 
-### `logs/personalclaw-2026-03-18.log`
+### `logs/bodhai-2026-03-18.log`
 
 ```
 ============================================================
-  PersonalClaw started at 2026-03-18T09:00:00.123Z
+  BodhAI started at 2026-03-18T09:00:00.123Z
 ============================================================
-[2026-03-18T09:00:00.456Z] [INFO] [Server] Initializing PersonalClaw v12...
+[2026-03-18T09:00:00.456Z] [INFO] [Server] Initializing BodhAI v12...
 [2026-03-18T09:00:00.891Z] [INFO] [OrgManager] Loaded 2 organisations.
 [2026-03-18T09:00:01.012Z] [INFO] [OrgHeartbeat] Scheduled 5 agent heartbeats across 2 organisations.
 [2026-03-18T09:00:01.234Z] [INFO] [Audit] Logger initialized.
 [2026-03-18T09:00:01.456Z] [INFO] [Activity] Loaded 87 items from disk.
-[2026-03-18T09:00:05.678Z] [INFO] [OrgHeartbeat] ⏰ Heartbeat: Aria (CEO) in PersonalClaw Enterprise
+[2026-03-18T09:00:05.678Z] [INFO] [OrgHeartbeat] ⏰ Heartbeat: Aria (CEO) in BodhAI Enterprise
 [2026-03-18T09:00:05.901Z] [INFO] [Brain:org_agent_xxx] Initialized with model: gemini-3.1-pro-preview
 [2026-03-18T09:00:07.123Z] [INFO] [Brain:org_agent_xxx] Tool: org_read_agent_memory {}
 [2026-03-18T09:00:07.456Z] [INFO] [Brain:org_agent_xxx] org_read_agent_memory completed in 333ms
@@ -376,7 +376,7 @@ const shutdown = async (signal: string) => {
 9. ✅ `npx tsc --noEmit`
 
 ### Integration Tests
-10. **Terminal log created** — start server → `logs/personalclaw-{today}.log` exists
+10. **Terminal log created** — start server → `logs/bodhai-{today}.log` exists
 11. **Terminal output captured** — trigger any agent run → tool calls appear in log file with timestamps
 12. **Startup marker** — log file has `====` startup banner at start of each session
 13. **Date rotation** — manually test by setting system clock forward (or check logic) → new file created

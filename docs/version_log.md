@@ -1,6 +1,6 @@
-# Version Log - PersonalClaw 📜
+# Version Log - BodhAI 📜
 
-All notable changes to the PersonalClaw agent will be documented in this file.
+All notable changes to the BodhAI agent will be documented in this file.
 
 ## [12.2.0] - 2026-03-19
 
@@ -58,7 +58,7 @@ All notable changes to the PersonalClaw agent will be documented in this file.
 - Create up to 10 AI organisations with name, mission, and root directory
 - Orgs fully isolated — no cross-org awareness or shared state
 - Org data persisted to `memory/orgs/{orgId}/` on disk
-- Create orgs via Dashboard UI form or PersonalClaw chat (`manage_org` skill)
+- Create orgs via Dashboard UI form or BodhAI chat (`manage_org` skill)
 - Pause/resume per org (freezes all agent heartbeats)
 - Soft-delete (data archived to `_deleted_{orgId}` directory)
 
@@ -194,9 +194,9 @@ Implemented two powerful new skills for handling PDF documents and AI image gene
 
 ## [10.3.0] - 2026-03-16
 
-### PersonalClaw Browser Relay Extension
+### BodhAI Browser Relay Extension
 
-New Chrome MV3 extension that bridges PersonalClaw to the user's real Chrome tabs — no `--remote-debugging-port` flag needed.
+New Chrome MV3 extension that bridges BodhAI to the user's real Chrome tabs — no `--remote-debugging-port` flag needed.
 
 #### New: `extension/` — Chrome MV3 Extension
 - **`manifest.json`** — MV3 manifest with tabs, activeTab, scripting permissions.
@@ -235,7 +235,7 @@ New Chrome MV3 extension that bridges PersonalClaw to the user's real Chrome tab
 # 1. Load extension in Chrome:
 #    chrome://extensions → Developer Mode → Load Unpacked → select extension/ folder
 
-# 2. Extension auto-connects to PersonalClaw (ws://127.0.0.1:3000/relay)
+# 2. Extension auto-connects to BodhAI (ws://127.0.0.1:3000/relay)
 
 # 3. Check status:
 /relay
@@ -257,7 +257,7 @@ New Chrome MV3 extension that bridges PersonalClaw to the user's real Chrome tab
 
 ### Chrome Native MCP & Dual-Mode Browser
 
-PersonalClaw can now connect to the user's **real running Chrome session** — not a new instance, but the actual browser with all real logins, cookies, and active tabs.
+BodhAI can now connect to the user's **real running Chrome session** — not a new instance, but the actual browser with all real logins, cookies, and active tabs.
 
 #### New: `src/core/chrome-mcp.ts`
 - **`ChromeNativeAdapter`** — connects to Chrome via two methods (auto-selects best):
@@ -318,7 +318,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 ### 🧹 Codebase Cleanup
 - **Browser Consolidation**: Removed redundant `src/skills/relay.ts`, `src/skills/stagehand.ts`, and the `extension/` directory. Unified browser logic now resides in `src/skills/browser.ts`.
 - **Workspace Declutter**:
-  - Deleted obsolete root-level documentation exports (`PersonalClaw_Overview.md`, `PersonalClaw_Overview.pdf`, etc.) and temporary images.
+  - Deleted obsolete root-level documentation exports (`BodhAI_Overview.md`, `BodhAI_Overview.pdf`, etc.) and temporary images.
   - Relocated utility scripts (`check_ssl.ps1`, `list_models.js`, `test_vision.js`) from the project root to the `scripts/` directory for better organization.
 - **Persona Management**: Cleaned up unused agent personas.
 - **Infrastructure**: Purged the `dist/` directory and temporary `browser_data/`.
@@ -425,7 +425,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 
 ## [1.17.0] - 2026-03-14
 ### Added
-- **🧬 Self-Learning Engine**: PersonalClaw now passively learns from every conversation.
+- **🧬 Self-Learning Engine**: BodhAI now passively learns from every conversation.
   - **User Profile**: Auto-detects name, role, company, expertise level.
   - **Communication Style**: Learns tone, verbosity, emoji usage, abbreviations/shorthand dictionary.
   - **Intent Patterns**: Maps "when user says X, they mean Y" with confidence scores.
@@ -443,7 +443,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 
 ## [1.16.0] - 2026-03-14
 ### Added
-- **🔄 Model Failover Chain**: PersonalClaw now cascades through 5 models automatically on failure:
+- **🔄 Model Failover Chain**: BodhAI now cascades through 5 models automatically on failure:
   `gemini-3.1-pro-preview` → `gemini-3-flash-preview` → `gemini-2.5-pro` → `gemini-2.5-flash` → `gemini-3.1-flash-lite-preview`
   - Handles: 404 (model not found), 503 (unavailable), rate limits (429), permission errors, and internal errors.
   - Tracks failover history and displays it in `/status`.
@@ -466,7 +466,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 ## [1.15.0] - 2026-03-14
 ### Changed
 - **🧠 Brain Overhaul**: Completely rebuilt the AI reasoning engine and system prompt from the ground up.
-  - **Identity & Personality**: PersonalClaw now has a defined personality — direct, efficient, technically sharp with dry humor.
+  - **Identity & Personality**: BodhAI now has a defined personality — direct, efficient, technically sharp with dry humor.
   - **Reasoning Framework**: Added structured 4-phase thinking model: Understand → Plan → Act → Verify.
   - **Tool Usage Guides**: Each skill now has in-prompt best practices, tips, and anti-patterns to prevent wasteful calls.
   - **Safety Guardrails**: Explicit rules preventing destructive commands without user confirmation, credential leaking, and rogue network requests.
@@ -502,7 +502,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 
 ## [1.12.0] - 2026-03-13
 ### Added
-- **🧠 Continuous Learning Engine**: Implemented `manage_long_term_memory` skill, allowing PersonalClaw to learn user preferences, shorthand, and custom MSP workflows across sessions.
+- **🧠 Continuous Learning Engine**: Implemented `manage_long_term_memory` skill, allowing BodhAI to learn user preferences, shorthand, and custom MSP workflows across sessions.
 - **🛠️ Tier 3 MSP Specialization**: Tailored the system prompt for high-level IT troubleshooting. Integrated awareness of `pts_tools.json` for rapid access to ITGlue, Nilear, ConnectWise, and more.
 - **⚡ Performance Overhaul**: Fixed typing lag in the dashboard by refactoring `App.tsx` and isolating the chat input into a memoized component.
 - **📋 Copy to Clipboard**: Added a one-click copy button to bot messages in the dashboard with visual "check-mark" feedback.
@@ -556,7 +556,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 ## [1.6.0] - 2026-03-12
 ### Added
 - **User Documentation**: Created a comprehensive `USER_GUIDE.md` for end-user onboarding, featuring icons, setup tips, and a breakdown of AI capabilities.
-- **Brand Identity**: Generated a futuristic logo for PersonalClaw and integrated it into the documentation assets.
+- **Brand Identity**: Generated a futuristic logo for BodhAI and integrated it into the documentation assets.
 
 ---
 
@@ -569,7 +569,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 
 ## [1.4.0] - 2026-03-12
 ### Added
-- **Browser Relay Extension**: Built a custom Chrome extension to allow PersonalClaw to control the user's active browser tabs.
+- **Browser Relay Extension**: Built a custom Chrome extension to allow BodhAI to control the user's active browser tabs.
 - **WebSocket Gateway**: Implemented a dedicated Relay Server on port 3001 for high-speed extension communication.
 - **Relay Skill**: Added `relay_browser_command` to the AI brain, allowing it to scrape or interact with any open website.
 
@@ -610,7 +610,7 @@ chrome://inspect/#remote-debugging → enable "Discover network targets"
 
 ## [1.0.0] - 2026-03-11
 ### Added
-- Initial release of PersonalClaw agent.
+- Initial release of BodhAI agent.
 - Core Skills: Shell (PowerShell), File Management, Python Execution, Web Browsing, Vision (Screenshots), and Clipboard.
 - Real-time Dashboard with Glassmorphic design.
 - Integration with Google Gemini API for tool-calling.

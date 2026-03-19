@@ -1,7 +1,7 @@
 /**
- * PersonalClaw Browser Relay — Background Service Worker (MV3)
+ * BodhAI Browser Relay — Background Service Worker (MV3)
  *
- * Maintains a WebSocket connection to the PersonalClaw backend relay server.
+ * Maintains a WebSocket connection to the BodhAI backend relay server.
  * Receives commands (navigate, click, type, scrape, screenshot, etc.) and
  * dispatches them to the active tab via content scripts or Chrome APIs.
  */
@@ -44,7 +44,7 @@ function connect() {
   }
 
   ws.onopen = () => {
-    console.log('[Relay] Connected to PersonalClaw backend');
+    console.log('[Relay] Connected to BodhAI backend');
     connected = true;
     updateBadge('ON', '#4CAF50');
 

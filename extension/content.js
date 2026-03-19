@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Browser Relay — Content Script
+ * BodhAI Browser Relay — Content Script
  *
  * Injected into every page. Handles DOM interaction commands from the
  * background service worker: click, type, scrape, scroll, evaluate,
@@ -13,7 +13,7 @@
 
   // ─── Visual Indicator ───────────────────────────────────────────
   const indicator = document.createElement('div');
-  indicator.id = 'personalclaw-indicator';
+  indicator.id = 'bodhai-indicator';
   indicator.style.cssText = `
     position: fixed; bottom: 8px; right: 8px; z-index: 2147483647;
     padding: 4px 10px; border-radius: 12px;
@@ -22,7 +22,7 @@
     pointer-events: none; opacity: 0.7;
     transition: opacity 0.3s;
   `;
-  indicator.textContent = 'PersonalClaw Relay';
+  indicator.textContent = 'BodhAI Relay';
   document.body?.appendChild(indicator);
 
   // Auto-hide after 3 seconds

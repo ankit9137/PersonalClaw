@@ -1,4 +1,4 @@
-# PersonalClaw v12 — Final Implementation Plan
+# BodhAI v12 — Final Implementation Plan
 ## Autonomous AI Company Orchestration System
 
 > **FINAL v2** — All design decisions resolved. All 16 pre-build issues (FIX-A through FIX-P) identified and fixed inline. Post-review critical fixes applied. Ready to hand off.
@@ -9,7 +9,7 @@
 
 | Decision | Answer |
 |---|---|
-| Org creation | Both — Dashboard UI form + PersonalClaw chat commands |
+| Org creation | Both — Dashboard UI form + BodhAI chat commands |
 | Max simultaneous orgs | 10 (decided by Claude) |
 | Cross-org communication | Fully isolated — no cross-org awareness |
 | Org defined by | Name + mission statement + root directory path |
@@ -37,7 +37,7 @@
 
 ### What v12 Adds
 
-v11 gave PersonalClaw a multi-brain human conversation system with parallel workers. v12 adds a completely separate layer that runs **above** that system — autonomous AI organisations that operate on their own schedules, manage their own tasks, and work on real project directories without any human in the loop.
+v11 gave BodhAI a multi-brain human conversation system with parallel workers. v12 adds a completely separate layer that runs **above** that system — autonomous AI organisations that operate on their own schedules, manage their own tasks, and work on real project directories without any human in the loop.
 
 **The two systems share:**
 - The `Brain` class (org agents are Brain instances with injected personas)
@@ -62,7 +62,7 @@ src/core/
   org-task-board.ts         ← Full ticket system per org, with write locks
   org-agent-runner.ts       ← Persona-injected Brain runner + persistent chat sessions
   org-skills.ts             ← Org-specific tools (tickets, memory, delegate, notify)
-  org-management-skill.ts   ← Skill for PersonalClaw chat-based org management
+  org-management-skill.ts   ← Skill for BodhAI chat-based org management
 
 dashboard/src/
   components/
@@ -88,9 +88,9 @@ dashboard/src/
 ```json
 {
   "id": "org_1710507660123",
-  "name": "PersonalClaw Dev Team",
-  "mission": "Build and maintain PersonalClaw as the world's best local-first AI automation platform.",
-  "rootDir": "C:/Projects/PersonalClaw",
+  "name": "BodhAI Dev Team",
+  "mission": "Build and maintain BodhAI as the world's best local-first AI automation platform.",
+  "rootDir": "C:/Projects/BodhAI",
   "createdAt": "2026-03-18T10:00:00.000Z",
   "paused": false,
   "agents": [
@@ -191,7 +191,7 @@ One JSON line appended per run:
 | FIX-C | 🔴 | `org-task-board.ts` and `org-manager.ts` mutual import risk | `org-task-board.ts` is standalone. `org-manager.ts` imports it. `index.ts` imports only `org-manager.ts` |
 | FIX-D | 🟡 | Delegation needs to trigger target agent heartbeat but `org-skills.ts` ↔ `org-heartbeat.ts` circular | `org-skills.ts` emits `Events.ORG_AGENT_DELEGATED` on EventBus. `org-heartbeat.ts` subscribes in constructor |
 | FIX-E | 🟡 | Direct agent chat panes have no `conversationId` in ConversationManager sense | `AgentChatPane` uses own `orgAgentChatId` format `orgchat_{agentId}_{timestamp}` tracked in `useOrgChat` — completely separate from `useConversations` |
-| FIX-F | 🟡 | PersonalClaw chat-based org creation — Brain has no direct access to OrgManager | `manage_org` skill registered globally — Brain calls it as a tool. Also add slash command handlers in `index.ts` |
+| FIX-F | 🟡 | BodhAI chat-based org creation — Brain has no direct access to OrgManager | `manage_org` skill registered globally — Brain calls it as a tool. Also add slash command handlers in `index.ts` |
 | FIX-G | 🟢 | Graceful shutdown must stop all heartbeat cron tasks before exit | `orgHeartbeat.stopAll()` called in shutdown handler before `conversationManager.closeAll()` |
 | FIX-H | 🟢 | Org agent Brain writes session history to global `memory/` directory polluting human sessions | Add `historyDir?` to `BrainConfig` — org agents pass their agent dir. `saveHistory()` uses it |
 | FIX-I | 🔴 | Direct agent chat creates a fresh Brain per message — agent has no memory of previous messages in same chat session | Add `chatBrains: Map<chatId, Brain>` in `org-agent-runner.ts`. Reuse Brain for same `chatId`. Add `closeChatSession(chatId)`. Frontend emits `org:agent:chat:close` on pane close |
@@ -281,7 +281,7 @@ private initSession() {
   const systemPrompt = this.config.systemPromptOverride ?? buildSystemPrompt();
   this.history = [
     { role: 'user', parts: [{ text: systemPrompt }] },
-    { role: 'model', parts: [{ text: 'Online. PersonalClaw v11 is ready. What do you need?' }] },
+    { role: 'model', parts: [{ text: 'Online. BodhAI v11 is ready. What do you need?' }] },
   ];
   this.turnCount = 0;
   this.startNewSession(this.history);
@@ -1685,7 +1685,7 @@ export const orgHeartbeat = new OrgHeartbeatEngine();
 
 ### 3.6 — New File: `src/core/org-management-skill.ts` (FIX-F, FIX-N)
 
-Registered globally — allows PersonalClaw's regular Brain to manage orgs via chat.
+Registered globally — allows BodhAI's regular Brain to manage orgs via chat.
 Uses `orgHeartbeat.scheduleAgent()` directly (no bracket notation — FIX-N).
 
 ```typescript
@@ -1695,7 +1695,7 @@ import type { Skill, SkillMeta } from '../types/skill.js';
 
 export const orgManagementSkill: Skill = {
   name: 'manage_org',
-  description: `Manage PersonalClaw AI organisations and their agents. Actions:
+  description: `Manage BodhAI AI organisations and their agents. Actions:
 - create_org: Create a new organisation (requires name, mission, rootDir)
 - list_orgs: List all organisations
 - delete_org: Delete an org (requires orgId)
@@ -2854,7 +2854,7 @@ export function CreateOrgModal({ onSubmit, onClose }: CreateOrgModalProps) {
           {error && <div className="form-error">{error}</div>}
           <div className="form-group">
             <label>Organisation Name</label>
-            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. PersonalClaw Dev Team" />
+            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. BodhAI Dev Team" />
           </div>
           <div className="form-group">
             <label>Mission Statement</label>
@@ -3458,7 +3458,7 @@ Change all `'11.0.0'` or `'11.1.0'` references to `'12.0.0'`.
 - Create up to 10 AI organisations with name, mission, and root directory
 - Orgs fully isolated — no cross-org awareness or shared state
 - Org data persisted to `memory/orgs/{orgId}/` on disk
-- Create orgs via Dashboard UI form or PersonalClaw chat (`manage_org` skill)
+- Create orgs via Dashboard UI form or BodhAI chat (`manage_org` skill)
 - Pause/resume per org (freezes all agent heartbeats)
 - Soft-delete (data archived to `_deleted_{orgId}` directory)
 
@@ -3505,7 +3505,7 @@ Change all `'11.0.0'` or `'11.1.0'` references to `'12.0.0'`.
 - `org_delegate` (triggers target agent heartbeat via EventBus)
 - `org_write_report`, `org_notify`
 
-#### New PersonalClaw Skill (all chat panes)
+#### New BodhAI Skill (all chat panes)
 - `manage_org` — CRUD for orgs and agents via natural language in chat
 
 #### Dashboard: Orgs Tab
@@ -3646,7 +3646,7 @@ Run `npx tsc --noEmit` after every phase. Do not proceed on errors.
 76. **Ticket write lock (FIX-L)** — trigger two agents in same org simultaneously — both create tickets → verify both tickets appear correctly with no corruption in `tickets.json`
 77. **Graceful shutdown — all cleanup (FIX-G, FIX-M)** — trigger agent run → immediately `Ctrl+C` → logs show `orgHeartbeat.stopAll()` fired → org agent workers killed → `conversationManager.closeAll()` called → clean exit with no hanging processes
 78. **Multiple orgs isolated** — create 2 orgs → agents in org A cannot see org B's tickets, memory, or agents
-79. **Org management via chat CRUD** — "list my orgs" → "pause the PersonalClaw org" → "trigger Maya's heartbeat" → "add a new agent to org X" → all work via tool call
+79. **Org management via chat CRUD** — "list my orgs" → "pause the BodhAI org" → "trigger Maya's heartbeat" → "add a new agent to org X" → all work via tool call
 80. **Org agent uses all skills** — verify org agent run uses file system, browser, HTTP, shell tools — all available
 81. **Org agent spawns sub-agents** — trigger agent with complex task → agent calls `spawn_agent` → sub-agent workers appear in activity feed
 82. **Skill locks respected globally** — two org agents in different orgs both try browser simultaneously → second waits → lock released → both complete without error
@@ -3714,7 +3714,7 @@ docs/version_log.md                      (v12.0.0 entry)
 16. **Org agent `historyDir` points to agent's memory dir** — session files never go to global `memory/` (FIX-H).
 17. **Org deletion is soft** — rename to `_deleted_{orgId}_{timestamp}`, never `fs.rmdirSync` or `fs.rmSync`.
 18. **Max orgs is 10** — enforced in `OrgManager.create()`.
-19. **`manage_org` skill registered in global skills index** — available to PersonalClaw's regular Brain.
+19. **`manage_org` skill registered in global skills index** — available to BodhAI's regular Brain.
 20. **Org skills NOT in global skills index** — injected via `brain.injectExtraTools()` per run only.
 21. **All org socket handlers use named functions** — for clean `socket.off()` cleanup in frontend hooks.
 22. **Do not rename any existing socket events or REST endpoints** — v12 adds new ones only.

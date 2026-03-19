@@ -6,12 +6,12 @@ import { skillLock } from '../core/skill-lock.js';
 import { orgManager } from '../core/org-manager.js';
 
 /**
- * Unified browser skill — the ONLY browser tool for PersonalClaw.
+ * Unified browser skill — the ONLY browser tool for BodhAI.
  *
  * THREE MODES:
  *   • playwright-managed (default) — persistent Playwright Chromium with login persistence.
  *   • native-chrome — connected to the user's real running Chrome session via CDP or Chrome MCP.
- *   • extension-relay — connected via the PersonalClaw Chrome extension for real DOM access.
+ *   • extension-relay — connected via the BodhAI Chrome extension for real DOM access.
  *
  * Switch to native Chrome: action="connect_native" (uses port 9222 by default).
  * Switch back to Playwright: action="disconnect_native".
@@ -30,7 +30,7 @@ NATIVE CHROME (Chrome 146+):
 - "chrome_call": When connected via Chrome native MCP, call a Chrome tool directly by name.
   Requires "target" = Chrome tool name, and "args" = JSON string of arguments.
 
-EXTENSION RELAY (PersonalClaw Chrome Extension):
+EXTENSION RELAY (BodhAI Chrome Extension):
 The extension provides a relay bridge to the user's real Chrome tabs. When the extension is connected:
 - "relay_tabs": List all open Chrome tabs (id, url, title, active status).
 - "relay_navigate": Navigate the active tab to a URL. Use "url" param. Optional "tab_id" to target a specific tab.
@@ -179,7 +179,7 @@ DECISION GUIDE:
         // ── Extension Relay Actions ─────────────────────────────────
 
         case 'relay_tabs': {
-          if (!extensionRelay.connected) return { success: false, error: 'Extension not connected. Install the PersonalClaw Relay extension in Chrome.' };
+          if (!extensionRelay.connected) return { success: false, error: 'Extension not connected. Install the BodhAI Relay extension in Chrome.' };
           const tabs = await extensionRelay.listTabs();
           return { success: true, data: { tabs } };
         }

@@ -8,7 +8,7 @@ const MEMORY_FILE = path.join(process.cwd(), 'memory', 'long_term_knowledge.json
 
 export const memorySkill: Skill = {
   name: 'manage_long_term_memory',
-  description: 'Learns and persists important information about the user, their preferences, their specific terminology (like MSP jargon), and patterns from conversations. Use this to ensure PersonalClaw evolves with the user.',
+  description: 'Learns and persists important information about the user, their preferences, their specific terminology (like MSP jargon), and patterns from conversations. Use this to ensure BodhAI evolves with the user.',
   parameters: {
     type: 'object',
     properties: {

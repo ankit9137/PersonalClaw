@@ -22,7 +22,7 @@ export class TelegramInterface {
   private setupHandlers() {
     if (!this.bot) return;
 
-    this.bot.start((ctx) => ctx.reply('Welcome to PersonalClaw. I am your Windows agent. Send me a command!'));
+    this.bot.start((ctx) => ctx.reply('Welcome to BodhAI. I am your Windows agent. Send me a command!'));
 
     this.bot.on('text', async (ctx) => {
       const message = ctx.message.text;

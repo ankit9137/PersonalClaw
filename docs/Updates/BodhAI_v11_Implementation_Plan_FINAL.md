@@ -1,4 +1,4 @@
-# PersonalClaw v11 — Final Implementation Plan
+# BodhAI v11 — Final Implementation Plan
 ## Step 1: Remove Paperclip | Step 2: Multi-Chat & Multi-Agent | Step 3: Skill Lock System
 
 > **FINAL** — All 8 pre-build issues resolved inline. Ready to hand off.
@@ -110,7 +110,7 @@ rm docs/PAPERCLIP_SKILL.md
 - Do not change the brain loop structure
 
 #### `AGENTS.md`
-- Replace header: "You are a Paperclip AI agent" → "You are a PersonalClaw agent"
+- Replace header: "You are a Paperclip AI agent" → "You are a BodhAI agent"
 - Remove `+-- paperclip.ts` line from project structure tree
 - Remove `+-- PaperClip/` directory lines
 - Remove `Create issues and track work via Paperclip tickets` from What You Can Do

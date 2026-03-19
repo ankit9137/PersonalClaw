@@ -14,7 +14,7 @@ export class McpManager {
       console.log("[MCP] Initializing Playwright MCP Server...");
 
       // Configure Playwright MCP to use our persistent profile
-      const userDataDir = path.join(process.cwd(), 'browser_data', 'PersonalClaw_Profile');
+      const userDataDir = path.join(process.cwd(), 'browser_data', 'BodhAI_Profile');
       
       this.transport = new StdioClientTransport({
         command: "npx",
@@ -27,7 +27,7 @@ export class McpManager {
 
       this.client = new Client(
         {
-          name: "PersonalClaw-Client",
+          name: "BodhAI-Client",
           version: "1.0.0",
         },
         {

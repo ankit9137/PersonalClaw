@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PersonalClaw Browser Relay",
+  "name": "BodhAI Browser Relay",
   "version": "2.0.0",
-  "description": "Bridge between PersonalClaw AI agent and your Chrome browser — real tabs, real DOM, real sessions.",
+  "description": "Bridge between BodhAI AI agent and your Chrome browser — real tabs, real DOM, real sessions.",
   "permissions": [
     "tabs",
     "activeTab",

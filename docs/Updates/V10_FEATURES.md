@@ -1,4 +1,4 @@
-# PersonalClaw v10.0: Feature Guide (Legacy Reference) 🚀
+# BodhAI v10.0: Feature Guide (Legacy Reference) 🚀
 
 > **Note:** This document covers v10.0 features. For v11.0 multi-chat, multi-agent, and skill lock features, see `version_log.md` and `USER_GUIDE.md`.
 
@@ -109,7 +109,7 @@ SessionManager.getStats(): SessionStats
 
 ### 4. Chrome Native MCP Adapter (`src/core/chrome-mcp.ts`) — v10.2
 
-**What it does:** Connects PersonalClaw to the user's already-running Chrome browser — real logins, real tabs, no re-authentication.
+**What it does:** Connects BodhAI to the user's already-running Chrome browser — real logins, real tabs, no re-authentication.
 
 **Connection Modes (auto-selected, best wins):**
 
@@ -511,7 +511,7 @@ chrome.exe --remote-debugging-port=9222 --user-data-dir=%TEMP%\chrome-debug
 ### Toast Notifications
 
 **Automatic Alerts:**
-- Connection: "Connected to PersonalClaw" (success)
+- Connection: "Connected to BodhAI" (success)
 - Disconnection: "Disconnected from server" (error)
 - Failures: Error messages
 
@@ -703,4 +703,4 @@ chrome.exe --remote-debugging-port=9222 --user-data-dir=%TEMP%\chrome-debug
 
 ---
 
-**PersonalClaw v10.0: From assistant to autonomous agent.** 🛸
+**BodhAI v10.0: From assistant to autonomous agent.** 🛸

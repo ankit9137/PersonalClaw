@@ -1,5 +1,5 @@
 /**
- * HTTP/API Skill — Make web requests from PersonalClaw.
+ * HTTP/API Skill — Make web requests from BodhAI.
  *
  * Supports GET, POST, PUT, PATCH, DELETE with headers, body, and auth.
  * Great for REST API interactions, webhooks, and data fetching.

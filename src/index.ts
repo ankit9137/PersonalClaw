@@ -42,7 +42,7 @@ app.use('/outputs', express.static(path.join(process.cwd(), 'outputs')));
 app.use('/screenshots', express.static(path.join(process.cwd(), 'screenshots')));
 
 // ─── Core Initialization ────────────────────────────────────────────
-console.log('[Server] Initializing PersonalClaw v12...');
+console.log('[Server] Initializing BodhAI v12...');
 
 console.log('[Server] Checking Telegram configuration...');
 const telegram = new TelegramInterface();
@@ -830,7 +830,7 @@ app.get('/status', (req, res) => {
   res.json({
     status: 'Online',
     version: '12.0.0',
-    system: 'PersonalClaw',
+    system: 'BodhAI',
     skills: skills.length,
     conversations: conversationManager.list().length,
   });
@@ -1099,7 +1099,7 @@ server.listen(PORT, () => {
   const startupInfo = [
     '',
     '  ╔══════════════════════════════════════════╗',
-    '  ║       PersonalClaw v12.0  — Online       ║',
+    '  ║       BodhAI v12.0  — Online       ║',
     '  ╠══════════════════════════════════════════╣',
     `  ║  Backend:    http://localhost:${PORT}        ║`,
     '  ║  Dashboard:  http://localhost:5173       ║',

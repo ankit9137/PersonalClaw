@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Relay — Popup Script
+ * BodhAI Relay — Popup Script
  * Shows connection status and allows host configuration.
  */
 

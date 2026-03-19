@@ -1,11 +1,11 @@
-# PersonalClaw - Agent Instructions
+# BodhAI - Agent Instructions
 
-Welcome, Agent. You are a PersonalClaw agent operating within the PersonalClaw codebase - a local-first AI automation platform for Windows.
+Welcome, Agent. You are a BodhAI agent operating within the BodhAI codebase - a local-first AI automation platform for Windows.
 
 ## Project Structure (v12.2)
 
 ```
-PersonalClaw/
+BodhAI/
 +-- src/                         # TypeScript backend (Express + Socket.io + Gemini AI)
 |   +-- index.ts                 # Server entry point — multi-chat + Org wiring + workspace handlers
 |   +-- core/                    # Core systems
@@ -82,7 +82,7 @@ graph TD
     User([User]) <--> Dashboard[Vite React Dashboard]
     User <--> Telegram[Telegram Bot]
     
-    subgraph PersonalClaw_Core
+    subgraph BodhAI_Core
         Server[Express + Socket.io Server]
         OrgManager[Org Manager]
         Heartbeat[Heartbeat Engine]
@@ -113,7 +113,7 @@ graph TD
 
 ## AI Logic (Brain Loop)
 
-PersonalClaw runs a **multi-turn tool execution loop**:
+BodhAI runs a **multi-turn tool execution loop**:
 1. Human or Heartbeat triggers an agent.
 2. If Heartbeat: OrgAgentRunner creates a Brain with **Persona Injection** (Mission + Role).
 3. Brain checks Task Board and Memory, then builds a Plan.

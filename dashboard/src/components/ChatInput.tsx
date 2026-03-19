@@ -109,7 +109,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
       <div className="input-area" style={{ alignItems: 'flex-end' }}>
         <textarea
           ref={textareaRef}
-          placeholder="Ask PersonalClaw anything... (Ctrl+K for commands)"
+          placeholder="Ask BodhAI anything... (Ctrl+K for commands)"
           value={text}
           onChange={(e) => { setText(e.target.value); setHistoryIdx(-1); }}
           onKeyDown={handleKeyDown}

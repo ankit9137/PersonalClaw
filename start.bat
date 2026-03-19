@@ -1,9 +1,9 @@
 @echo off
-TITLE PersonalClaw v11.1 - Runner
+TITLE BodhAI v11.1 - Runner
 
 echo.
 echo   ╔══════════════════════════════════════════════════════╗
-echo   ║         PersonalClaw v11.1 - Starting System         ║
+echo   ║         BodhAI v11.1 - Starting System         ║
 echo   ╚══════════════════════════════════════════════════════╝
 echo.
 
@@ -28,14 +28,14 @@ echo.
 
 :: Launch Backend
 echo [1/2] Launching Backend Agent...
-start "PersonalClaw Backend" cmd /c "npm run dev"
+start "BodhAI Backend" cmd /c "npm run dev"
 
 :: Small delay to let backend start
 timeout /t 2 >nul
 
 :: Launch Dashboard
 echo [2/2] Launching Dashboard UI...
-start "PersonalClaw Dashboard" cmd /c "npm run dashboard"
+start "BodhAI Dashboard" cmd /c "npm run dashboard"
 
 echo.
 echo   ╔══════════════════════════════════════════════════════╗

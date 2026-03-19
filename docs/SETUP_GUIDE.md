@@ -1,6 +1,6 @@
-# 🏁 First-Time Setup Guide: PersonalClaw v12.2
+# 🏁 First-Time Setup Guide: BodhAI v12.2
 
-Welcome to PersonalClaw v12.2! This version features **Autonomous AI Organisations** with workspace file management, human comment feedback, and expanded dashboard controls. Follow these steps to get running.
+Welcome to BodhAI v12.2! This version features **Autonomous AI Organisations** with workspace file management, human comment feedback, and expanded dashboard controls. Follow these steps to get running.
 
 ---
 
@@ -20,8 +20,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 Open PowerShell and run:
 ```bash
-git clone https://github.com/yourusername/PersonalClaw.git
-cd PersonalClaw
+git clone https://github.com/yourusername/BodhAI.git
+cd BodhAI
 ```
 
 ### 2. Automatic Setup
@@ -30,7 +30,7 @@ Run the setup batch file. This will install all dependencies (Brain + Dashboard)
 .\setup.bat
 ```
 
-### 3. Running PersonalClaw
+### 3. Running BodhAI
 Once setup is complete, launch the entire system with a single command:
 ```bash
 .\start.bat
@@ -57,13 +57,13 @@ The agent has **built-in browser control** (Playwright) that works out of the bo
 
 ### Extension Relay (Recommended)
 
-Install the **PersonalClaw Relay** Chrome extension to let the agent interact with your real Chrome tabs:
+Install the **BodhAI Relay** Chrome extension to let the agent interact with your real Chrome tabs:
 
 1. Open `chrome://extensions` in Chrome.
 2. Enable **Developer Mode** (toggle in top-right).
-3. Click **Load Unpacked** and select the `extension/` folder from the PersonalClaw project.
-4. The extension auto-connects to PersonalClaw (you'll see a green "ON" badge).
-5. Type `/relay` in PersonalClaw chat to verify the connection.
+3. Click **Load Unpacked** and select the `extension/` folder from the BodhAI project.
+4. The extension auto-connects to BodhAI (you'll see a green "ON" badge).
+5. Type `/relay` in BodhAI chat to verify the connection.
 
 ---
 

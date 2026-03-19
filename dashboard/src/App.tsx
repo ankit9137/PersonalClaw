@@ -64,7 +64,7 @@ type TabType = 'command' | 'metrics' | 'activity' | 'skills' | 'orgs';
 
 const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', text: 'Welcome back. PersonalClaw v11 is online and ready.', sender: 'bot', timestamp: new Date() }
+    { id: '1', text: 'Welcome back. BodhAI v11 is online and ready.', sender: 'bot', timestamp: new Date() }
   ]);
 
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -106,7 +106,7 @@ const App: React.FC = () => {
 
     newSocket.on('connect', () => {
       setConnected(true);
-      addToast('Connected to PersonalClaw', 'success');
+      addToast('Connected to BodhAI', 'success');
     });
 
     newSocket.on('disconnect', () => {
@@ -321,7 +321,7 @@ const App: React.FC = () => {
       <aside className="sidebar">
         <div className="sidebar-brand">
           <Sparkles size={22} style={{ color: 'var(--accent-primary)' }} />
-          <h1>PersonalClaw</h1>
+          <h1>BodhAI</h1>
         </div>
         <div className="version-badge">v11.0</div>
 
@@ -497,7 +497,7 @@ const App: React.FC = () => {
               >
                 <h2>Activity Feed</h2>
                 <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '8px' }}>
-                  Real-time events from all PersonalClaw subsystems
+                  Real-time events from all BodhAI subsystems
                 </p>
 
                 <div className="activity-list" style={{ marginTop: '20px' }}>

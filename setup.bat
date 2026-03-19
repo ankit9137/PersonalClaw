@@ -1,11 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 
-TITLE PersonalClaw v11.1 - Setup Wizard
+TITLE BodhAI v11.1 - Setup Wizard
 
 echo.
 echo   ╔══════════════════════════════════════════════════════╗
-echo   ║          PersonalClaw v11.1 - Installation           ║
+echo   ║          BodhAI v11.1 - Installation           ║
 echo   ╚══════════════════════════════════════════════════════╝
 echo.
 
@@ -132,7 +132,7 @@ echo      %~dp0extension
 echo.
 
 echo   ╔══════════════════════════════════════════════════════╗
-echo   ║            Setup Complete! PersonalClaw is ready.     ║
+echo   ║            Setup Complete! BodhAI is ready.     ║
 echo   ╠══════════════════════════════════════════════════════╣
 echo   ║   1. Ensure Chrome Extension is loaded (see above)    ║
 echo   ║   2. To start the system, run: start.bat             ║

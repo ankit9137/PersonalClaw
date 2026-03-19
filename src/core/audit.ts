@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Audit Logger — Tracks every action for security and debugging.
+ * BodhAI Audit Logger — Tracks every action for security and debugging.
  *
  * Records tool calls, model interactions, errors, and system events.
  * Persisted to disk with rotation. Queryable via /audit command.

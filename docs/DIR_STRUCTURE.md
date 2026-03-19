@@ -1,9 +1,9 @@
-# PersonalClaw: Project Directory Structure
+# BodhAI: Project Directory Structure
 
-This document provides a comprehensive overview of the PersonalClaw codebase structure, optimized for both human developers and AI models.
+This document provides a comprehensive overview of the BodhAI codebase structure, optimized for both human developers and AI models.
 
 ## Project Overview
-PersonalClaw is a local-first AI automation platform for Windows, integrating Gemini AI with local tools (skills), a React dashboard, and various communication interfaces.
+BodhAI is a local-first AI automation platform for Windows, integrating Gemini AI with local tools (skills), a React dashboard, and various communication interfaces.
 
 ## Major Directory Descriptions
 
@@ -22,7 +22,7 @@ PersonalClaw is a local-first AI automation platform for Windows, integrating Ge
 ## Directory Tree
 
 ```
-PersonalClaw/
+BodhAI/
 ├── dashboard
 │   ├── public
 │   │   └── vite.svg
@@ -72,12 +72,12 @@ PersonalClaw/
 │   ├── assets
 │   │   └── logo.png
 │   ├── Updates
-│   │   ├── PersonalClaw_v11_Implementation_Plan_FINAL.md
-│   │   ├── PersonalClaw_v12_Implementation_Plan_FINAL_v2.md
+│   │   ├── BodhAI_v11_Implementation_Plan_FINAL.md
+│   │   ├── BodhAI_v12_Implementation_Plan_FINAL_v2.md
 │   │   ├── V10_FEATURES.md
-│   │   ├── PersonalClaw_v12.1_Implementation_Plan_FINAL_v2.md
-│   │   ├── PersonalClaw_v12.1_Protection_Patch.md
-│   │   └── PersonalClaw_Logging_Patch.md
+│   │   ├── BodhAI_v12.1_Implementation_Plan_FINAL_v2.md
+│   │   ├── BodhAI_v12.1_Protection_Patch.md
+│   │   └── BodhAI_Logging_Patch.md
 │   ├── ARCHITECTURE.md
 │   ├── DIR_STRUCTURE.md
 │   ├── SETUP_GUIDE.md

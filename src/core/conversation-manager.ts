@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Conversation Manager — Manages up to 3 independent chat panes.
+ * BodhAI Conversation Manager — Manages up to 3 independent chat panes.
  *
  * Each conversation has its own isolated Brain instance.
  * Conversations are auto-saved to SessionManager on close.

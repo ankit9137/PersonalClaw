@@ -1,5 +1,5 @@
 $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-$userDataDir = "c:\All Projects\PersonalClaw\browser_data"
+$userDataDir = "c:\All Projects\BodhAI\browser_data"
 $port = 9222
 
 if (-not (Test-Path $userDataDir)) {

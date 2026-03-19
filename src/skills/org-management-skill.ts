@@ -4,7 +4,7 @@ import type { Skill, SkillMeta } from '../types/skill.js';
 
 export const orgManagementSkill: Skill = {
   name: 'manage_org',
-  description: `Manage PersonalClaw AI organisations and their agents. Actions:
+  description: `Manage BodhAI AI organisations and their agents. Actions:
 - create_org: Create a new organisation (requires name, mission)
 - list_orgs: List all organisations
 - delete_org: Delete an org (requires orgId)

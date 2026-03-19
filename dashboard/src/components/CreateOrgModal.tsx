@@ -67,7 +67,7 @@ export function CreateOrgModal({ onSubmit, onClose }: CreateOrgModalProps) {
 
           <div className="form-group">
             <label>Organisation Name</label>
-            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. PersonalClaw Enterprise" />
+            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. BodhAI Enterprise" />
           </div>
           <div className="form-group">
             <label>Mission Statement</label>

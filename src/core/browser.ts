@@ -4,11 +4,11 @@ import * as fs from 'fs';
 import { ChromeNativeAdapter, chromeNativeAdapter } from './chrome-mcp.js';
 import { extensionRelay } from './relay.js';
 
-const PROFILE_DIR = path.join(process.cwd(), 'browser_data', 'PersonalClaw_Profile');
+const PROFILE_DIR = path.join(process.cwd(), 'browser_data', 'BodhAI_Profile');
 const SCREENSHOTS_DIR = path.join(process.cwd(), 'screenshots');
 
 /**
- * BrowserManager — Single, persistent Playwright browser for PersonalClaw.
+ * BrowserManager — Single, persistent Playwright browser for BodhAI.
  * 
  * One browser instance. One context. One active page.
  * All browser skills route through here.

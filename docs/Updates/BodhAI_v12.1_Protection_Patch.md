@@ -1,4 +1,4 @@
-# PersonalClaw v12.1 — Patch: Multi-Org Protection System
+# BodhAI v12.1 — Patch: Multi-Org Protection System
 ## Replaces the single-repo file guard with per-org, configurable protection
 
 > **Applies on top of v12.1 FINAL v2.** Fixes FIX-R (wrong git root) and adds
@@ -8,14 +8,14 @@
 
 ## WHAT THIS PATCH CHANGES
 
-The original v12.1 plan ran `git ls-files` from `process.cwd()` (PersonalClaw's
+The original v12.1 plan ran `git ls-files` from `process.cwd()` (BodhAI's
 root) for every org. This patch makes protection **per-org and configurable**:
 
 - Each org runs `git ls-files` from its own root directory
 - Manual path additions supported alongside or instead of git
 - Protection mode selectable at creation and editable after
 - Works for users with no git repo on their project
-- Works for public users who download PersonalClaw and point it at any project
+- Works for public users who download BodhAI and point it at any project
 
 ---
 
@@ -102,7 +102,7 @@ private expandManualPaths(rootDir: string, manualPaths: string[]): string[] {
 export function snapshotGitFiles(rootDir: string): string[] {
   try {
     const output = execSync('git ls-files', {
-      cwd: rootDir,           // FIX: org's dir, not PersonalClaw's dir
+      cwd: rootDir,           // FIX: org's dir, not BodhAI's dir
       encoding: 'utf-8',
       timeout: 5000,
     });
@@ -375,7 +375,7 @@ export function CreateOrgModal({ onSubmit, onClose }: CreateOrgModalProps) {
 
   // Browse button — uses Electron/native file dialog if available, else manual input
   const browsePath = async () => {
-    // PersonalClaw runs on Windows. Use PowerShell via the backend to open a folder picker.
+    // BodhAI runs on Windows. Use PowerShell via the backend to open a folder picker.
     try {
       const res = await fetch('/api/browse-folder', { method: 'POST' });
       const { path } = await res.json();
@@ -402,7 +402,7 @@ export function CreateOrgModal({ onSubmit, onClose }: CreateOrgModalProps) {
           {/* Basic info */}
           <div className="form-group">
             <label>Organisation Name</label>
-            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. PersonalClaw Enterprise" />
+            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. BodhAI Enterprise" />
           </div>
           <div className="form-group">
             <label>Mission Statement</label>
@@ -717,9 +717,9 @@ Run `npx tsc --noEmit` after each phase.
 4. Update `src/index.ts` — add `/api/check-git`, `/api/browse-folder`, `/api/browse-file`, `/api/orgs/:id/protection` endpoints, add `org:protection:update` socket handler
 5. ✅ `npx tsc --noEmit`
 6. Start server. Verify:
-   - `POST /api/check-git` with PersonalClaw dir → `{ available: true, fileCount: N }`
+   - `POST /api/check-git` with BodhAI dir → `{ available: true, fileCount: N }`
    - `POST /api/check-git` with non-git dir → `{ available: false, fileCount: 0 }`
-   - Create org with `protectionMode: 'git'` → `org.protection.gitFiles` contains paths from that org's root dir, not PersonalClaw's
+   - Create org with `protectionMode: 'git'` → `org.protection.gitFiles` contains paths from that org's root dir, not BodhAI's
    - Create org with `protectionMode: 'manual'` + paths → `org.protection.manualPaths` populated
    - `PUT /api/orgs/:id/protection` updates and persists
 
@@ -731,8 +731,8 @@ Run `npx tsc --noEmit` after each phase.
 11. Append CSS
 
 ### Phase C — Integration Tests
-12. **Git protection** — create PersonalClaw org with Git mode → `protectedFiles` contains PersonalClaw files only
-13. **Separate org git protection** — create MSP Genie org pointing at MSP Genie dir → `protectedFiles` contains MSP Genie files, zero overlap with PersonalClaw
+12. **Git protection** — create BodhAI org with Git mode → `protectedFiles` contains BodhAI files only
+13. **Separate org git protection** — create MSP Genie org pointing at MSP Genie dir → `protectedFiles` contains MSP Genie files, zero overlap with BodhAI
 14. **No git repo** — point at a non-git dir → git option shows ⚠️ warning → git + both buttons disabled → can still choose Manual or None
 15. **Manual paths** — add `src/` and `config/settings.json` → agent tries to write there → intercepted → proposal created
 16. **Both mode** — git + manual → both sets protected
@@ -740,7 +740,7 @@ Run `npx tsc --noEmit` after each phase.
 18. **Edit protection after creation** — switch from Git to Both, add manual path → saved → new path immediately protected
 19. **Refresh git** — add a new file to git (`git add`) → click Refresh → count updates
 20. **Browse button** — click 📂 → Windows folder picker opens → selected path populates input
-21. **Multi-org isolation** — PersonalClaw org protected files ≠ MSP Genie protected files — confirmed in `org.json` for each
+21. **Multi-org isolation** — BodhAI org protected files ≠ MSP Genie protected files — confirmed in `org.json` for each
 
 ---
 

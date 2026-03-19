@@ -1,12 +1,12 @@
-# PersonalClaw Architecture & Internal Specs
+# BodhAI Architecture & Internal Specs
 
-This document provides a technical deep-dive into the PersonalClaw backend and frontend communication protocols.
+This document provides a technical deep-dive into the BodhAI backend and frontend communication protocols.
 
 ---
 
 ## 🏗️ Core Architecture (v12.2)
 
-PersonalClaw uses a multi-layered architecture. The **ConversationManager** manages human chat panes, while the **OrgManager** orchestrates autonomous AI companies. The **OrgHeartbeatEngine** drives agent execution via cron and events, and the **OrgAgentRunner** executes them as persona-injected Brain instances.
+BodhAI uses a multi-layered architecture. The **ConversationManager** manages human chat panes, while the **OrgManager** orchestrates autonomous AI companies. The **OrgHeartbeatEngine** drives agent execution via cron and events, and the **OrgAgentRunner** executes them as persona-injected Brain instances.
 
 ### Key Systems
 | System | File | Purpose |
@@ -81,7 +81,7 @@ PersonalClaw uses a multi-layered architecture. The **ConversationManager** mana
 
 ## ⚙️ AI Logic (Brain Loop)
 
-PersonalClaw runs a **multi-turn tool execution loop**:
+BodhAI runs a **multi-turn tool execution loop**:
 1. Human or Heartbeat triggers an agent.
 2. If Heartbeat: OrgAgentRunner creates a Brain with **Persona Injection** (Mission + Role).
 3. Brain checks Task Board and Memory, then builds a Plan.

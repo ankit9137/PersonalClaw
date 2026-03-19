@@ -1,7 +1,7 @@
 /**
- * PersonalClaw Extension Relay — WebSocket server for browser extension communication.
+ * BodhAI Extension Relay — WebSocket server for browser extension communication.
  *
- * The relay bridges the Chrome extension and the PersonalClaw brain/skills.
+ * The relay bridges the Chrome extension and the BodhAI brain/skills.
  * Attaches to the main HTTP server at path /relay (same port as the main server).
  * Extension connects via WebSocket to ws://127.0.0.1:3000/relay.
  *
@@ -116,7 +116,7 @@ export class ExtensionRelay {
    */
   async executeCommand(command: string, params: any = {}, timeoutMs = 30000): Promise<any> {
     if (!this.client || this.client.readyState !== WebSocket.OPEN) {
-      throw new Error('Extension not connected. Install and enable the PersonalClaw Relay extension in Chrome.');
+      throw new Error('Extension not connected. Install and enable the BodhAI Relay extension in Chrome.');
     }
 
     const id = `cmd_${++this.commandId}_${Date.now()}`;

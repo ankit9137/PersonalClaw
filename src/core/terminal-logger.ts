@@ -1,8 +1,8 @@
 /**
- * PersonalClaw Terminal Logger
+ * BodhAI Terminal Logger
  *
  * Tees all console output (log/warn/error) to a rolling daily log file.
- * Files live in logs/personalclaw-{date}.log, auto-deleted after 7 days.
+ * Files live in logs/bodhai-{date}.log, auto-deleted after 7 days.
  * Zero LLM token cost — pure file I/O.
  */
 
@@ -40,7 +40,7 @@ class TerminalLogger {
     this.intercept();
 
     // Log startup marker
-    const marker = `\n${'='.repeat(60)}\n  PersonalClaw started at ${new Date().toISOString()}\n${'='.repeat(60)}\n`;
+    const marker = `\n${'='.repeat(60)}\n  BodhAI started at ${new Date().toISOString()}\n${'='.repeat(60)}\n`;
     this.stream?.write(marker);
   }
 
@@ -61,7 +61,7 @@ class TerminalLogger {
     this.stream?.end();
     this.currentDate = today;
 
-    const file = path.join(LOGS_DIR, `personalclaw-${today}.log`);
+    const file = path.join(LOGS_DIR, `bodhai-${today}.log`);
     this.stream = fs.createWriteStream(file, { flags: 'a' });
   }
 
@@ -69,7 +69,7 @@ class TerminalLogger {
     try {
       const cutoff = Date.now() - MAX_DAYS * 24 * 60 * 60 * 1000;
       for (const f of fs.readdirSync(LOGS_DIR)) {
-        if (!f.startsWith('personalclaw-') || !f.endsWith('.log')) continue;
+        if (!f.startsWith('bodhai-') || !f.endsWith('.log')) continue;
         const full = path.join(LOGS_DIR, f);
         try {
           if (fs.statSync(full).mtimeMs < cutoff) {

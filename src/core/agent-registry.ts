@@ -1,5 +1,5 @@
 /**
- * PersonalClaw Agent Registry — Manages sub-agent workers for multi-agent execution.
+ * BodhAI Agent Registry — Manages sub-agent workers for multi-agent execution.
  *
  * FIX-2: Brain is NOT imported at the top level. It is dynamically imported inside
  * startWorker() to break the circular dependency chain:

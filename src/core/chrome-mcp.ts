@@ -6,7 +6,7 @@ import * as http from 'http';
 export type NativeChromeMode = 'chrome-mcp' | 'cdp' | 'disconnected';
 
 /**
- * ChromeNativeAdapter — connects PersonalClaw to the user's already-running Chrome session.
+ * ChromeNativeAdapter — connects BodhAI to the user's already-running Chrome session.
  *
  * Two connection modes (auto-selected, best wins):
  *
@@ -214,7 +214,7 @@ export class ChromeNativeAdapter {
   private async _tryChromeMCP(port: number): Promise<boolean> {
     try {
       const transport = new SSEClientTransport(new URL(`http://localhost:${port}`));
-      const client = new Client({ name: 'PersonalClaw', version: '10.0.0' }, { capabilities: {} });
+      const client = new Client({ name: 'BodhAI', version: '10.0.0' }, { capabilities: {} });
 
       await Promise.race([
         client.connect(transport),
